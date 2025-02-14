@@ -55,14 +55,20 @@ const Profile = () => {
     <div>
       {userDetails ? (
         <div className="profile-container">
-          <div className="profile-header">
-            <div className="profile-picture">
-              <img src={userDetails.profilePicture ? userDetails.profilePicture : defaultImage} alt="Profile" />
+          <div className="profile-container">
+            <h2>User Profile</h2>
+            <div className="profile-pic">
+              <img
+                src={userDetails.profilePicture || "default-profile.png"}
+                alt="Profile"
+                className="profile-preview"
+              />
             </div>
-            <h2>{userDetails.name}</h2>
+            <p>{userDetails.name}</p>
             <p>{userDetails.email}</p>
+            <p>{userDetails.bio} </p>
+            <p>{userDetails.location}</p>
           </div>
-          <div className="user-bio">{userDetails.bio || "No bio available"}</div>
           <button onClick={() => navigate("/editprofile")}>Edit Profile</button>
           <button onClick={handleLogout}>Log Out</button>
         </div>

@@ -1,7 +1,7 @@
 const plans = [
     {
         name: "Basic",
-        price: "₹299/month",
+        price: "Free",
         description: "Access to all essential services.",
     },
     {

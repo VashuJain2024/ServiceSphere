@@ -56,15 +56,26 @@ export default function EditProfile() {
         setLoading(true);
 
         try {
+            if (!user) {
+                toast.error("User not found!");
+                setLoading(false);
+                return;
+            }
+
             let imageUrl = previewUrl;
 
             if (profilePic) {
+                console.log("Uploading profile picture...");
                 const imageRef = ref(storage, `profile_pictures/${user.uid}`);
                 await uploadBytes(imageRef, profilePic);
                 imageUrl = await getDownloadURL(imageRef);
+                console.log("Profile picture uploaded:", imageUrl);
             }
 
             const userRef = doc(db, "Users", user.uid);
+            console.log("Updating user:", user.uid);
+            console.log("User reference:", userRef);
+
             await updateDoc(userRef, {
                 name,
                 bio,
@@ -74,11 +85,13 @@ export default function EditProfile() {
 
             toast.success("Profile updated successfully!");
         } catch (error) {
+            console.error("Error updating profile:", error);
             toast.error("Failed to update profile.");
         } finally {
             setLoading(false);
         }
     };
+
 
     return (
         <div className="edit-profile-container">

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../assets/logo.png";
 import { isLoggedContext } from "../contexts/isLogged";
+import user from "../assets/tasker1.png";
 
 export default function Navbar() {
   const [menuActive, setMenuActive] = useState(false);
@@ -39,7 +40,7 @@ export default function Navbar() {
       >
         {isLogged ? (
           <img
-            src="../src/assets/tasker1.png"
+            src={user}
             alt="profileImage"
             className="profileImage"
           />

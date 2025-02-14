@@ -30,11 +30,11 @@ import EditProfile from "../components/EditProfile";
 
 const AppRouter = () => {
   const { user } = useContext(isLoggedContext);
-  useEffect(() => {
-    if (user) {
-      toast.success("User already logged in", { position: "top-center" });
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user) {
+  //     toast.success("User already logged in", { position: "top-center" });
+  //   }
+  // }, [user]);
 
   return (
     <Router>
