@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("../assets/task-scheduler-feature-image.jpg");
+    background: url("../assets/task-scheduler-feature-image.jpg") no-repeat center center/cover;
 }
  
 .modal-content {
