@@ -1,13 +1,13 @@
 .top-rated-services {
-    padding-top: 120px;
-    background-color: #f9f9f9;
+    padding-top: 100px;
+    background-color: #e3f0f1;
 }
 
 .top-rated-services h2 {
     margin-left: 50px;
     text-align: center;
-    color: #193a76;
-    font-size: 30px;
+    color: hsl(219, 65%, 28%);
+    font-size: 40px;
     gap: 13px;
 }
 
