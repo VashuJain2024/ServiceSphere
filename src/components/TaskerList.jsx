@@ -14,7 +14,7 @@ const TaskerList = () => {
     searchParams.get("times") ? searchParams.get("times").split(",") : []
   );
   const navigate = useNavigate();
- 
+
   const updateURL = (newParams) => {
     const updatedParams = new URLSearchParams(searchParams);
     Object.entries(newParams).forEach(([key, value]) => {
@@ -23,7 +23,7 @@ const TaskerList = () => {
     });
     setSearchParams(updatedParams);
   };
- 
+
   const timeOptions = {
     "Morning (8am - 12pm)": "morning",
     "Afternoon (12pm - 5pm)": "afternoon",
@@ -38,7 +38,7 @@ const TaskerList = () => {
     setSelectedTimes(newSelectedTimes);
     updateURL({ times: newSelectedTimes.join(",") });
   };
- 
+
   const sortedTaskers = [...taskers].sort((a, b) => {
     if (sortBy === "Price Low to High") {
       return (
@@ -55,13 +55,13 @@ const TaskerList = () => {
     }
     return 0;
   });
- 
+
   const handleDateSelection = (date) => {
     setSelectedDate(date);
     updateURL({ date: date !== "Choose Dates" ? date : "" });
 
     if (date !== "Choose Dates") {
-      setCustomDate("");  
+      setCustomDate("");
     }
   };
 

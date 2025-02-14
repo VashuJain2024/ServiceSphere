@@ -1,63 +1,58 @@
-// import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";  
+import { useNavigate } from "react-router-dom";
 import "./Signup.css";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../firebase/firebase";
+import { setDoc, doc } from "firebase/firestore";
+import { toast } from "react-toastify";
+import { isLoggedContext } from "../contexts/isLogged";
 
 export default function Signup() {
-  const [username, setUsername] = useState(""); 
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState(""); 
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);  
-  const navigate = useNavigate();  
+  const [success, setSuccess] = useState(null);
+  const navigate = useNavigate();
+
+  const { isLogged, setIsLogged } = useContext(isLoggedContext);
 
   const handleSignup = async (e) => {
-    e.preventDefault();  
-
+    e.preventDefault();
     if (!username || !email || !password || !confirmPassword) {
       setError("Please fill out all fields.");
       return;
     }
-
     if (password !== confirmPassword) {
       setError("Passwords do not match.");
       return;
     }
-
     setLoading(true);
     setError(null);
 
-    try { 
-      // const response = await axios.post(
-      //   "http://localhost:5000/api/auth/signup",
-      //   {
-      //     username,
-      //     email,
-      //     password,
-      //   }
-      // );
-
-      if (true) { 
-        // if (response.data.token) {
-        //   localStorage.setItem("authToken", response.data.token);  
-        // }
- 
-        setSuccess("You have successfully signed up! You can now log in.");
- 
-        setTimeout(() => {
-          navigate("/terms");
-        }, 1500);  
-      } else {
-        setError(response.data.message || "Signup failed. Please try again.");
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      const user = auth.currentUser;
+      // console.log(user);
+      if (user) {
+        await setDoc(doc(db, "Users", user.uid), {
+          name: username,
+          email: user.email,
+          pwd: password,
+        });
       }
-    } catch (err) {
-      setError(
-        err.response && err.response.data.message
-          ? err.response.data.message
-          : "Error during signup. Please try again."
-      );
+      navigate("/services");
+      // console.log("User Registered Successfully!!");
+      toast.success("User Registered Successfully!!", {
+        position: "top-center",
+      });
+    } catch (error) {
+      // console.log(error.message);
+      toast.error(error.message, {
+        position: "bottom-center",
+      });
     } finally {
       setLoading(false);
     }
@@ -69,11 +64,11 @@ export default function Signup() {
         <h2>Sign Up</h2>
         <form onSubmit={handleSignup}>
           <div>
-            <label>Username:</label> 
+            <label>Username:</label>
             <input
               type="text"
-              value={username} 
-              onChange={(e) => setUsername(e.target.value)} 
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               placeholder="Enter your username"
               required
             />

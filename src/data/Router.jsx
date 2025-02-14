@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
 } from "react-router-dom";
+import { toast } from "react-toastify";
 import Navbar from "../components/Navbar";
 import Signup from "../components/Signup";
 import Signin from "../components/Signin";
@@ -24,8 +25,16 @@ import TaskerList from "../components/TaskerList";
 import TaskScheduler from "../components/TaskScheduler";
 import LoginSignUp from "../components/Login-SignUp";
 import TermsAndConditions from "../components/TermsAndConditions";
+import { isLoggedContext } from "../contexts/isLogged";
 
 const AppRouter = () => {
+  const { user } = useContext(isLoggedContext);
+  useEffect(() => {
+    if (user) {
+      toast.success("User already logged in", { position: "top-center" });
+    }
+  }, [user]);
+
   return (
     <Router>
       <Navbar />
@@ -47,8 +56,14 @@ const AppRouter = () => {
         />
         <Route path="/profile" element={<Profile />} />
         <Route path="/login-signup" element={<LoginSignUp />} />
-        <Route path="/login" element={<Signin />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/login"
+          element={user ? <Navigate to="/home" /> : <Signin />}
+        />
+        <Route
+          path="/signup"
+          element={user ? <Navigate to="/home" /> : <Signup />}
+        />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/services/task-form" element={<TaskForm />} />
