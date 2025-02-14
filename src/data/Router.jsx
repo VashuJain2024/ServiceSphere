@@ -26,6 +26,7 @@ import TaskScheduler from "../components/TaskScheduler";
 import LoginSignUp from "../components/Login-SignUp";
 import TermsAndConditions from "../components/TermsAndConditions";
 import { isLoggedContext } from "../contexts/isLogged";
+import EditProfile from "../components/EditProfile";
 
 const AppRouter = () => {
   const { user } = useContext(isLoggedContext);
@@ -55,6 +56,7 @@ const AppRouter = () => {
           }
         />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/editprofile" element={<EditProfile />} />
         <Route path="/login-signup" element={<LoginSignUp />} />
         <Route
           path="/login"

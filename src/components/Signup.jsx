@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Signup.css";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -12,17 +12,17 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [role, setRole] = useState(""); // "worker" or "user"
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
   const { isLogged, setIsLogged } = useContext(isLoggedContext);
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    if (!username || !email || !password || !confirmPassword) {
-      setError("Please fill out all fields.");
+    if (!username || !email || !password || !confirmPassword || !role) {
+      setError("Please fill out all fields and select a role.");
       return;
     }
     if (password !== confirmPassword) {
@@ -35,24 +35,18 @@ export default function Signup() {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       const user = auth.currentUser;
-      // console.log(user);
       if (user) {
         await setDoc(doc(db, "Users", user.uid), {
           name: username,
           email: user.email,
           pwd: password,
+          role,
         });
       }
       navigate("/services");
-      // console.log("User Registered Successfully!!");
-      toast.success("User Registered Successfully!!", {
-        position: "top-center",
-      });
+      toast.success("User Registered Successfully!!", { position: "top-center" });
     } catch (error) {
-      // console.log(error.message);
-      toast.error(error.message, {
-        position: "bottom-center",
-      });
+      toast.error(error.message, { position: "bottom-center" });
     } finally {
       setLoading(false);
     }
@@ -103,6 +97,27 @@ export default function Signup() {
               required
             />
           </div>
+
+          {/* Role Selection */}
+          <div className="role-selection">
+            <label>
+              <input
+                type="checkbox"
+                checked={role === "worker"}
+                onChange={() => setRole(role === "worker" ? "" : "worker")}
+              />
+              Worker
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={role === "user"}
+                onChange={() => setRole(role === "user" ? "" : "user")}
+              />
+              User
+            </label>
+          </div>
+
           <button type="submit" disabled={loading}>
             {loading ? "Signing up..." : "Sign Up"}
           </button>
