@@ -1,0 +1,89 @@
+.subscription-section {
+    text-align: center;
+    background: #f9f9f9;
+    padding: 40px 20px;
+}
+
+.subscription-section h2 {
+    color: #193a76;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.subscription-section p {
+    font-size: 18px; 
+}
+
+.plans-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.plan-card {
+    background: white;
+    border-radius: 50px;
+    border: 1px solid #757575;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    width: 250px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    align-items: center;
+}
+
+.plan-card:hover {
+    transform: scale(1.05);
+}
+
+.plan-card h3 {
+    font-size: 22px;
+    color: #193a76;
+    margin: 5px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
+
+.description {
+    font-size: 14px;
+    color: #666;
+}
+
+.select-btn {
+    background: #193a76;
+    color: white;
+    padding: 10px 15px;
+    border:  1px solid #193a76;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px; 
+    transition: 0.3s;
+    width: fit-content;
+}
+
+.select-btn:hover {
+    background: white;
+    color: #193a76;
+    border: 1px solid #193a76;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .plans-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .plan-card {
+        width: 90%;
+    }
+}

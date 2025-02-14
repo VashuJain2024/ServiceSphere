@@ -1,0 +1,141 @@
+.signin-container {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    background: url("../assets/loginBg.jpg") no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.headingForm {
+    padding: 10px 20px;
+    min-width: 400px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+}
+
+.signin-container h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.signin-container form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.signin-container form div {
+    margin-bottom: 20px;
+}
+
+.signin-container form label {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.signin-container form input {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.signin-container form input:focus {
+    border-color: #45A29E;
+    outline: none;
+}
+
+.signin-container form input.error-input {
+    border-color: red;
+}
+
+.signin-container form button {
+    padding: 12px;
+    background-color: #193a76;
+    color: white;
+    border: 1px solid #193a76;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: fit-content;
+    margin: auto;
+}
+
+.signin-container form button:hover {
+    background-color: #ffffff;
+    color: #193a76;
+    border: 1px solid white;
+}
+
+.signin-container form button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+ 
+.new {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.new .styl {
+    color: #193a76;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.new .styl:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .signin-container {
+        margin: 50px auto;
+        padding: 20px;
+    }
+
+    .signin-container h2 {
+        font-size: 1.8rem;
+    }
+
+    .signin-container form input,
+    .signin-container form button {
+        font-size: 14px;
+    }
+}
+ 
+body.signin-page {
+    background: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+ 
+body {
+    background: #fff; 
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}

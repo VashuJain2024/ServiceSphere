@@ -1,0 +1,98 @@
+.landing-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url("../assets/loginBg.jpg") no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-login-signup {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    top: 100px;
+    text-align: center;
+}
+
+.logo-login-signup img {
+    width: 200px;
+}
+
+.auth-box {
+    background: transparent;
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+    width: 90%;
+    max-width: 400px;
+}
+
+.auth-box h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.signup-btn,
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.signup-btn {
+    background-color: #193a76;
+    color: white;
+}
+
+.signup-btn:hover {
+    background-color: #2653a8;
+}
+
+.login-btn {
+    background-color: black;
+    color: white;
+}
+
+.login-btn:hover {
+    background-color: rgb(142, 142, 142);
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+    .auth-box {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .auth-box h2 {
+        font-size: 1.5rem;
+    }
+
+    .signup-btn,
+    .login-btn {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}

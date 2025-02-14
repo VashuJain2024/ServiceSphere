@@ -1,0 +1,136 @@
+.signup-container {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    background: url("../assets/loginBg.jpg") no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.headingForm {
+    padding: 10px 20px;
+    min-width: 400px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+}
+
+.signup-container h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.signup-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-container form div {
+    margin-bottom: 20px;
+}
+
+.signup-container form label {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.signup-container form input {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.signup-container form input:focus {
+    border-color: #193a76;
+    outline: none;
+}
+
+.signup-container form input.error-input {
+    border-color: red;
+}
+
+.signup-container form button {
+    padding: 12px;
+    background-color: #193a76;
+    color: white;
+    border: 1px solid #193a76;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease, transform 0.2s;
+    width: fit-content;
+    margin: auto;
+}
+
+.signup-container form button:hover {
+    background-color: #ffffff;
+    color: #193a76;
+    border: 1px solid white;
+}
+
+.signup-container form button:active {
+    transform: scale(0.98);
+}
+
+.signup-container form button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.success-message {
+    color: #45A29E; 
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .signup-container {
+        margin: 50px auto;
+        padding: 20px;
+    }
+
+    .signup-container h2 {
+        font-size: 1.8rem;
+    }
+
+    .signup-container form input,
+    .signup-container form button {
+        font-size: 14px;
+    }
+}
+ 
+body.signup-page {
+    background: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+ 
+body {
+    background: #fff;
+    /* Ensure other pages are not affected */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}

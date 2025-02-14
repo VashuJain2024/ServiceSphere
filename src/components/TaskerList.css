@@ -1,0 +1,232 @@
+/* General Styling */
+.tasker-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+ 
+.sorting {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.sorting label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.sorting select {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.left-right {
+    display: flex;
+    column-gap: 20px;
+    justify-content: center;
+}
+ 
+.filter-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    height: fit-content;
+    position: sticky;
+    top: 80px;
+}
+ 
+h3 {
+    margin: 0 0 10px;
+    color: #333;
+}
+ 
+.date-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.date-picker {
+    margin: 10px 0px;
+    width: 93%;
+}
+
+.date-buttons button {
+    padding: 8px;
+    border: 1px solid #193a76;
+    background: white;
+    color: #193a76;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.date-buttons button:hover {
+    background: #193a76;
+    color: white;
+}
+
+.date-buttons button.active {
+    background: #193a76;
+    color: white;
+}
+
+input[type="checkbox"] {
+    accent-color: #193a76; 
+}
+ 
+.time-options {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.time-options label {
+    font-size: 14px;
+    color: #555;
+}
+ 
+.divider {
+    text-align: center;
+    font-size: 12px;
+    color: gray;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    position: absolute;
+    width: 25%;
+    height: 1px;
+    background: #ddd;
+    top: 50%;
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+.dropdown {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.info-box {
+    background: #193a76;
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+    .filter-container {
+        width: 90%;
+    }
+}
+
+.tasker-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 550px;
+}
+
+.tasker-card {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 650px;
+}
+
+.tasker-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.tasker-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.tasker-info h3 {
+    margin: 0;
+    color: #333;
+    font-size: 2rem;
+}
+
+.tasker-info p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.price {
+    font-weight: bold;
+}
+
+.select-button {
+    padding: 8px 15px;
+    background: #193a76;
+    color: white;
+    border: 1px solid #193a76;
+    border-radius: 5px;
+    cursor: pointer;
+    width: fit-content;
+    margin: auto;
+    transition: all 0.3s;
+}
+
+.select-button:hover {
+    background: white;
+    border: 1px solid #193a76;
+    color: #193a76;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tasker-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .tasker-image {
+        margin-bottom: 10px;
+    }
+
+    .sorting {
+        justify-content: center;
+    }
+}

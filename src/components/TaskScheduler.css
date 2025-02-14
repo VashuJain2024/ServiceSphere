@@ -1,0 +1,94 @@
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../assets/task-scheduler-feature-image.jpg");
+}
+ 
+.modal-content {
+    background: transparent;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    margin: 50px 0px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+    backdrop-filter: blur(10px);
+}
+ 
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+ 
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+ 
+.calendar-container {
+    margin-bottom: 15px;
+}
+ 
+.time-select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+ 
+.summary {
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.react-calendar {
+    border: none;
+    margin: auto;
+}
+ 
+.confirm-btn {
+    padding: 10px;
+    background: #193a76;
+    color: white;
+    border: 1px solid #193a76;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.4s;
+    float: right;
+}
+
+.confirm-btn:hover {
+    background: white;
+    border: 1px solid white;
+    color: #193a76;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .modal-content {
+        width: 95%;
+    }
+}

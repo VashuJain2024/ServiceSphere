@@ -1,0 +1,148 @@
+.task-form {
+    max-width: 600px;
+    margin: 0px auto 15px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #193a76;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.taskpara {
+    color: white;
+}
+
+p {
+    font-size: 0.9rem;
+    color: black;
+    margin-bottom: 15px;
+}
+
+.task-section {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+h4 {
+    font-size: 1rem;
+    color: #333;
+    margin: 10px 0px;
+}
+
+.title {
+    font-size: 3rem;
+    text-align: center;
+    margin: 5px 0px 30px 0px;
+    color: white;
+}
+
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input,
+textarea {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+input[type="radio"] {
+    accent-color: #193a76; 
+}
+
+textarea {
+    height: 80px;
+    resize: none;
+}
+
+label {
+    display: block;
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.continue-btn,
+.final-btn {
+    display: block;
+    margin: auto;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+    background: #193a76;
+    border: 1px solid white;
+    color: white;
+}
+
+.continue-btn:hover,
+.final-btn:hover {
+    background: white;
+    border: 1px solid white;
+    color: #193a76;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .task-form {
+        padding: 15px;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    h4 {
+        font-size: 0.9rem;
+    }
+
+    input,
+    textarea {
+        font-size: 0.8rem;
+    }
+
+    .continue-btn,
+    .final-btn {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .task-form {
+        padding: 10px;
+    }
+
+    h3 {
+        font-size: 0.9rem;
+    }
+
+    h4 {
+        font-size: 0.85rem;
+    }
+
+    input,
+    textarea {
+        font-size: 0.75rem;
+    }
+
+    .continue-btn,
+    .final-btn {
+        font-size: 0.85rem;
+    }
+}
