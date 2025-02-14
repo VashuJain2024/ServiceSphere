@@ -4,6 +4,7 @@ import "./App.css";
 import { ToastContainer } from "react-toastify";
 import { isLoggedContext } from "./contexts/isLogged";
 import { auth } from "./firebase/firebase";
+import AIChatPopup from "./components/AIChatPopUp";
 
 const App = () => {
   const [isLogged, setIsLogged] = useState();
@@ -21,6 +22,7 @@ const App = () => {
   return (
     <isLoggedContext.Provider value={{ isLogged, setIsLogged, user }}>
       <AppRouter />
+      <AIChatPopup />
       <ToastContainer />
     </isLoggedContext.Provider>
   );

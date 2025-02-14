@@ -41,9 +41,9 @@ const AppRouter = () => {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/ServiceSphere" element={<Navigate to="/ServiceSphere/home" />} />
+        <Route path="/ServiceSphere" element={<Navigate to="/home" />} />
         <Route
-          path="/ServiceSphere/home"
+          path="/home"
           element={
             <div style={{ marginTop: "69px" }}>
               <Slider />
