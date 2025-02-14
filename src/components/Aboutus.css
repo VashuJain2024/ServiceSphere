@@ -1,24 +1,28 @@
-/* General About Section Styling */
 .about-section {
     display: flex;
     flex-direction: column;
+    margin-top: 10px;
     padding: 4rem 2rem;
-    background-color: #f9f9f9;
+    background-color: #e3f0f1;
     gap: 3rem;
     text-align: center;
+    box-sizing: border-box;
 }
 
-/* About Content Styling */
 .about-content {
     color: #333;
     max-width: 60%;
     margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .about-content h2 {
     font-size: 3rem;
     font-weight: bold;
-    color: #333;
+    color: #193a76;
     margin-bottom: 1.5rem;
 }
 
@@ -29,10 +33,10 @@
     margin-bottom: 1rem;
 }
 
-/* About Image Styling */
 .about-image {
     max-width: 70%;
     margin: 0 auto;
+    padding: 2rem;
 }
 
 .about-image img {
@@ -48,12 +52,12 @@
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
-/* New Services Section */
 .about-services {
     background-color: #fff;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
 }
 
 .about-services h3 {
@@ -65,7 +69,7 @@
 
 .service-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
 }
 
@@ -75,6 +79,11 @@
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: scale(1.05);
 }
 
 .service-item h4 {
@@ -89,7 +98,28 @@
     line-height: 1.5;
 }
 
-/* Responsive Design */
+.about-vision-mission {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.about-vision-mission h3 {
+    font-size: 2.5rem;
+    color: #193a76;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.about-vision-mission p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
 @media (max-width: 768px) {
     .about-section {
         padding: 2rem;
@@ -104,7 +134,7 @@
         max-width: 90%;
     }
 
-    .services-grid {
+    .service-grid {
         grid-template-columns: 1fr;
     }
 
@@ -120,7 +150,6 @@
         font-size: 1.1rem;
     }
 
-    /* For mobile optimization */
     .about-image img {
         border-radius: 8px;
     }
@@ -130,7 +159,6 @@
     }
 }
 
-/* Extra small devices (mobile phones in portrait mode) */
 @media (max-width: 480px) {
     .about-content h2 {
         font-size: 2rem;
@@ -140,7 +168,7 @@
         font-size: 1rem;
     }
 
-    .services-grid {
+    .service-grid {
         grid-template-columns: 1fr;
     }
 

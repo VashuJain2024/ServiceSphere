@@ -1,12 +1,12 @@
 .services-section {
     padding: 4rem 2rem;
-    background-color: #fff;
+    background-color: #e3f0f1;
     text-align: center;
 }
 
 .services-section h2 {
     font-size: 2.5rem;
-    color: #333;
+    color: #193a76;
     margin: 2rem;
 } 
 
@@ -24,7 +24,7 @@
 
 .service-category h3 {
     font-size: 2rem;
-    color: #333;
+    color: #193a76;
     margin: 15px 0px;
 }
 
@@ -62,7 +62,7 @@
 
 .service-card h3 {
     font-size: 1.8rem;
-    color: #222;
+    color: #193a76;
 }
 
 .service-card p {

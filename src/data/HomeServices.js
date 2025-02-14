@@ -1,6 +1,19 @@
 import serviceImage1 from "../assets/image1.jpg";
 import serviceImage2 from "../assets/image2.jpg";
 import serviceImage3 from "../assets/image3.jpg";
+import cleaning from "../assets/cleaning.jpg";
+import laundry from "../assets/laundry.jpg";
+import Dishwashing from "../assets/Dishwashing.jpg";
+import Dusting from "../assets/Dusting.jpg";
+import mopping from "../assets/mopping.jpg";
+import elderlyCaregivers from "../assets/elderly caregivers.jpg";
+import nannies from "../assets/nannies.jpg";
+import drivers from "../assets/personal drivers.jpg";
+import cooks from "../assets/daily cooks.jpg";
+import cookingAssistant from "../assets/cooking assistant.jpg";
+import househelpers from "../assets/house helpers.jpg";
+import eventhelpers from "../assets/event helpers.jpg";
+
 
 const homeServices = [
     {
@@ -116,6 +129,84 @@ const homeServices = [
                 description:
                     "Trimming trees to ensure safety, beauty, and health of your plants.",
                 image: serviceImage3,
+            },
+        ],
+    },
+    {
+        category : "Home Maids",
+        services: [
+            {
+                title: "Deep Cleaning",
+                description:"Thorough deep cleaning for a spotless, refreshing home.",
+                image: cleaning,
+            },
+            {
+                title: "Dishwashing",
+                description: "Cleaning dishes and kitchenware for a sparkling clean kitchen.",
+                image: Dishwashing,
+            },
+            {
+                title: "Laundry",
+                description: "Cleaning and folding laundry for a fresh, clean home.",
+                image: laundry,
+            },
+            {
+                title: "Dusting",
+                description: "Dusting and polishing surfaces for a clean and shiny home.",
+                image: Dusting,
+            },
+            {
+                title: "Mopping",
+                description: "Mopping floors for a clean and hygienic home.",
+                image: mopping,
+            },
+        ],
+
+    },
+    {
+         category :"Handy Helpers",
+         services: [
+            {
+                title: "Childcare Nannies",
+                description: "Trusted childcare nannies for a safe and happy child.",
+                image: nannies,
+            },
+            {
+                title : "Elderly Caregivers" , 
+                description: "Compassionate elderly caregivers for a happy and healthy senior.",
+                image: elderlyCaregivers,
+                },
+            {
+                title: "Personal Drivers",
+                description: "Reliable personal drivers for a safe and convenient ride.",
+                image: drivers,
+            },
+            {
+                title:"Daily Cooks" , 
+                description: "Delicious daily meals prepared by a trusted cook.",
+                image: cooks,
+            },
+            {
+                title: "Cooking Assistants",
+                description: "Help with meal preparation and cooking for a stress-free kitchen.",
+                image: cookingAssistant,
+            },
+        ],
+
+    },
+    {
+        category: "Event and Party Supports",
+        services: [ 
+            {
+                title: "House party Helpers",
+                description: "Help with party setup, cleanup , serving , and more for a stress-free celebration.",
+                image : househelpers ,
+            },
+            {
+                title: " Event Helpers ",
+                description: "Help with event setup, decoration , guest management and more for a stress-free celebration .",
+                image: eventhelpers,
+
             },
         ],
     },
