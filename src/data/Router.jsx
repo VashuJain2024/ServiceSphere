@@ -25,6 +25,7 @@ import TaskerList from "../components/TaskerList";
 import TaskScheduler from "../components/TaskScheduler";
 import LoginSignUp from "../components/Login-SignUp";
 import TermsAndConditions from "../components/TermsAndConditions";
+import Payment from "../components/Payment";
 import { isLoggedContext } from "../contexts/isLogged";
 import EditProfile from "../components/EditProfile";
 
@@ -77,6 +78,10 @@ const AppRouter = () => {
         <Route
           path="/services/task-form/taskers/taskSchedule/terms"
           element={<TermsAndConditions />}
+        />
+        <Route
+          path="/payment"
+          element={<Payment />}
         />
         <Route path="/contact" element={<ContactForm />} />
       </Routes>
