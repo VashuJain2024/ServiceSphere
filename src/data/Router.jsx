@@ -40,7 +40,7 @@ const AppRouter = () => {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/ServiceSphere" element={<Navigate to="/home" />} />
         <Route
           path="/home"
           element={
