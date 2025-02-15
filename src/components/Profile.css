@@ -1,128 +1,108 @@
-/* Profile Container */
+/* Container for the profile */
 .profile-container {
     max-width: 600px;
-    margin: 50px auto;
+    margin: 80px auto;
     padding: 20px;
     background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgb(25 58 118);
     text-align: center;
 }
 
-/* Profile Header */
-.profile-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.profile-picture img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #007bff;
-}
-
-/* Rating */
-.user-rating {
-    font-size: 18px;
-    color: #f39c12;
-}
-
-/* Profile Details */
-.profile-details {
-    text-align: left;
-    margin-top: 20px;
-}
-
-.profile-details h3 {
-    margin-bottom: 10px;
+/* Title styling */
+.profile-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
     color: #333;
 }
 
-.user-info p {
-    font-size: 14px;
-    margin: 5px 0;
-}
-
-/* Buttons */
-.profile-management {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.profile-management button {
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.edit-btn {
-    background: #28a745;
-    color: white;
-}
-
-.password-btn {
-    background: #ffc107;
-    color: white;
-}
-
-.logout-btn {
-    background: #dc3545;
-    color: white;
-}
-
-.profile-management button:hover {
-    opacity: 0.8;
-}
-
-/* Loading State */
-.loading-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.profile-picture-placeholder {
-    width: 100px;
-    height: 100px;
-    background: #ddd;
+/* Profile picture container */
+.profile-pic {
+    margin: 0 auto 15px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #193a76;
 }
 
-.profile-details-placeholder {
-    width: 80%;
-    height: 50px;
-    background: #ddd;
-    border-radius: 5px;
+/* Image inside profile picture container */
+.profile-preview-img {
+    width: 100%;    
+    object-fit: cover;
 }
 
-/* Responsive Design */
+/* Paragraph/text styling */
+.profile-container p {
+    font-size: 1rem;
+    color: #000000;
+    margin: 8px 0;
+}
+
+/* Buttons styling */
+.profile-container button {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #193a76;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive adjustments for tablets */
 @media (max-width: 768px) {
     .profile-container {
-        width: 90%;
-        padding: 15px;
+        padding: 15px; 
+        margin: 80px 20px;
     }
 
-    .profile-picture img {
-        width: 80px;
-        height: 80px;
+    .profile-container h2 {
+        font-size: 1.5rem;
     }
 
-    .profile-management {
-        flex-direction: column;
+    .profile-container p {
+        font-size: 0.9rem;
     }
 
-    .profile-management button {
-        font-size: 14px;
-        padding: 8px;
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-container button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Responsive adjustments for mobile phones */
+@media (max-width: 480px) {
+    .profile-container {
+        padding: 10px; 
+    }
+
+    .profile-container h2 {
+        font-size: 1.3rem;
+    }
+
+    .profile-container p {
+        font-size: 0.8rem;
+    }
+
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-container button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
     }
 }

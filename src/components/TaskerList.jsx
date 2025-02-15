@@ -112,6 +112,7 @@ const TaskerList = () => {
                 value={customDate}
                 onChange={(e) => setCustomDate(e.target.value)}
                 className="date-picker"
+                required
               />
             )}
 
@@ -123,6 +124,7 @@ const TaskerList = () => {
                     type="checkbox"
                     checked={selectedTimes.includes(value)}
                     onChange={() => handleCheckboxChange(value)}
+                    required
                   />{" "}
                   {label}
                 </label>

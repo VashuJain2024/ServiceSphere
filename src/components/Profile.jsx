@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import defaultImage from "../assets/default-image.png";
 import { isLoggedContext } from "../contexts/isLogged";
 import { toast } from "react-toastify";
+import "./Profile.css";
 
 const Profile = () => {
   const [userDetails, setUserDetails] = useState(null);
@@ -55,19 +56,19 @@ const Profile = () => {
     <div>
       {userDetails ? (
         <div className="profile-container">
-          <div className="profile-container">
-            <h2>User Profile</h2>
+          <div className="profile-container2">
+            <h2>{userDetails.name}'s Profile</h2>
             <div className="profile-pic">
               <img
-                src={userDetails.profilePicture || "default-profile.png"}
+                src={userDetails.profilePicture || defaultImage}
                 alt="Profile"
-                className="profile-preview"
+                className="profile-preview-img"
               />
             </div>
-            <p>{userDetails.name}</p>
-            <p>{userDetails.email}</p>
-            <p>{userDetails.bio} </p>
-            <p>{userDetails.location}</p>
+            <p><strong>Name : </strong>{userDetails.name}</p>
+            <p><strong>Email : </strong>{userDetails.email}</p>
+            <p><strong>Bio : </strong>{userDetails.bio ? userDetails.bio : "No bio available"} </p>
+            <p><strong>Location : </strong>{userDetails.location ? userDetails.location : "No location available"}</p>
           </div>
           <button onClick={() => navigate("/editprofile")}>Edit Profile</button>
           <button onClick={handleLogout}>Log Out</button>

@@ -1,6 +1,6 @@
 .edit-profile-container {
     max-width: 400px;
-    margin: 20px auto;
+    margin: 80px auto;
     padding: 20px;
     background: #fff;
     border-radius: 10px;
@@ -43,21 +43,22 @@ textarea {
 }
 
 .profile-preview {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+    width: 100%;
     object-fit: cover;
-    margin-top: 10px;
 }
 
 button {
     padding: 10px;
-    background-color: #007bff;
+    background-color: #193a76;
     color: white;
     font-weight: bold;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+button:hover {
+    background-color: #2253ae;
 }
 
 button:disabled {
@@ -70,10 +71,5 @@ button:disabled {
     .edit-profile-container {
         width: 90%;
         padding: 15px;
-    }
-
-    .profile-preview {
-        width: 70px;
-        height: 70px;
     }
 }

@@ -4,7 +4,7 @@ import "react-calendar/dist/Calendar.css";
 import "./TaskScheduler.css";
 import { useNavigate, useSearchParams } from "react-router";
 import Steps from "./Steps";
-import taskers from "../data/Taskers";  
+import taskers from "../data/Taskers";
 
 const TaskScheduler = () => {
   const [searchParams] = useSearchParams();
@@ -12,10 +12,10 @@ const TaskScheduler = () => {
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState("12:30pm");
   const navigate = useNavigate();
-  const isLogged = false;  
- 
+  const isLogged = false;
+
   const tasker = taskers.find((t) => t.name === taskerName);
-  const profileImage = tasker ? tasker.image : "/default-profile.png";  
+  const profileImage = tasker ? tasker.image : "/default-profile.png";
 
   return (
     <>
@@ -33,13 +33,14 @@ const TaskScheduler = () => {
           </div>
 
           <div className="calendar-container">
-            <Calendar onChange={setDate} value={date} />
+            <Calendar onChange={setDate} value={date} required />
           </div>
 
           <select
             className="time-select"
             value={time}
             onChange={(e) => setTime(e.target.value)}
+            required
           >
             {["8:00am", "10:00am", "12:30pm", "2:00pm", "4:00pm", "6:30pm"].map(
               (t) => (
