@@ -66,16 +66,19 @@ export default function EditProfile() {
 
             if (profilePic) {
                 console.log("Uploading profile picture...");
-                const imageRef = ref(storage, `profile_pictures/${user.uid}`);
-                await uploadBytes(imageRef, profilePic);
-                imageUrl = await getDownloadURL(imageRef);
-                console.log("Profile picture uploaded:", imageUrl);
+                try {
+                    const imageRef = ref(storage, `profile_pictures/${user.uid}`);
+                    await uploadBytes(imageRef, profilePic);
+                    imageUrl = await getDownloadURL(imageRef);
+                    console.log("Profile picture uploaded:", imageUrl);
+                } catch (uploadError) {
+                    console.error("Error during upload:", uploadError);
+                    toast.error("Failed to upload profile picture.");
+                }
             }
 
             const userRef = doc(db, "Users", user.uid);
             console.log("Updating user:", user.uid);
-            console.log("User reference:", userRef);
-
             await updateDoc(userRef, {
                 name,
                 bio,
@@ -84,6 +87,8 @@ export default function EditProfile() {
             });
 
             toast.success("Profile updated successfully!");
+            // Navigate after successful update
+            navigate("/profile");
         } catch (error) {
             console.error("Error updating profile:", error);
             toast.error("Failed to update profile.");
@@ -92,20 +97,30 @@ export default function EditProfile() {
         }
     };
 
-
     return (
         <div className="edit-profile-container">
             <h2>Edit Profile</h2>
             <form onSubmit={handleUpdateProfile}>
+                <label>Profile Picture</label>
+                <input type="file" accept="image/*" onChange={handleProfilePicChange} />
                 <div className="profile-pic">
-                    <label>Profile Picture</label>
-                    <input type="file" accept="image/*" onChange={handleProfilePicChange} />
-                    {previewUrl && <img src={previewUrl} alt="Profile Preview" className="profile-preview" />}
+                    {previewUrl && (
+                        <img
+                            src={previewUrl}
+                            alt="Profile Preview"
+                            className="profile-preview"
+                        />
+                    )}
                 </div>
 
                 <div>
                     <label>Name</label>
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+                    <input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                    />
                 </div>
 
                 <div>
@@ -115,16 +130,26 @@ export default function EditProfile() {
 
                 <div>
                     <label>Bio</label>
-                    <textarea value={bio} onChange={(e) => setBio(e.target.value)} placeholder="Tell something about yourself"></textarea>
+                    <textarea
+                        value={bio}
+                        onChange={(e) => setBio(e.target.value)}
+                        placeholder="Tell something about yourself"
+                    ></textarea>
                 </div>
 
                 <div>
                     <label>Location</label>
-                    <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Your city or country" />
+                    <input
+                        type="text"
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}
+                        placeholder="Your city or country"
+                    />
                 </div>
 
-                <button type="submit" disabled={loading} onClick={() => navigate("/home")}>
-                    {false ? "Saving..." : "Save Changes"}
+                {/* Remove onClick from button */}
+                <button type="submit" disabled={loading}>
+                    {loading ? "Saving..." : "Save Changes"}
                 </button>
             </form>
         </div>

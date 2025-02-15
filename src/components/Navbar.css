@@ -69,6 +69,8 @@
 
 .profileImage {
     width: 50px;
+    border: 1px solid white;
+    border-radius: 50%;
 }
 
 .navbar .login:hover {

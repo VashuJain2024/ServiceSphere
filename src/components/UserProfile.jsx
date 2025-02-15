@@ -5,22 +5,6 @@ function UserProfile() {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      const mockUserData = {
-        userId: "12345",
-        email: "johndoe@example.com",
-        name: "John Doe",
-        profilePicture: "/default-profile.png",
-        rating: 4.5,
-        bio: "Software developer with a passion for building web applications.",
-        location: "New York, USA",
-      };
-      setUserData(mockUserData);
-      setLoading(false);
-    }, 1000);
-  }, []);
-
   if (loading) {
     return (
       <div className="profile-container">

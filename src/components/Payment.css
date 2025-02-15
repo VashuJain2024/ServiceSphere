@@ -1,0 +1,94 @@
+/* FakePaymentUI.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.payment-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+.payment-box h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.input-field {
+    width: 95%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background: #193a76;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+.qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.qr-container img {
+    width: 150px;
+    height: 150px;
+}
+
+.status-success {
+    color: green;
+    font-weight: bold;
+}
+
+.status-failure {
+    color: red;
+    font-weight: bold;
+}
+
+.loader {
+    margin-top: 15px;
+    width: 30px;
+    height: 30px;
+    border: 4px solid transparent;
+    border-top-color: #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width:405px){
+    .payment-box{
+        width: 300px;
+    }
+}
