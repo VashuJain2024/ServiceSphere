@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../assets/logo.png";
+import { isLoggedContext } from "../contexts/isLogged";
+import user from "../assets/tasker1.png";
 
 export default function Navbar() {
   const [menuActive, setMenuActive] = useState(false);
+  const { isLogged } = useContext(isLoggedContext);
 
   const toggleMenu = () => {
     setMenuActive((prevState) => !prevState);
@@ -32,12 +35,12 @@ export default function Navbar() {
         </li>
       </ul>
       <Link
-        to={true ? "/login-signup" : "/login-signup"}
+        to={isLogged ? "/profile" : "/login-signup"}
         className="login-signup"
       >
-        {false ? (
+        {isLogged ? (
           <img
-            src="../src/assets/tasker1.png"
+            src={user}
             alt="profileImage"
             className="profileImage"
           />

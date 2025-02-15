@@ -19,6 +19,7 @@ export default function TopRatedServices() {
           </div>
         ))}
       </div>
+      <p className="swipe">&lt;&lt; Swipe &gt;&gt;</p>
     </section>
   );
 }

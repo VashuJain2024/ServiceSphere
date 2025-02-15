@@ -1,79 +1,82 @@
-import React, { useState, useEffect } from "react";
-import "./Profile.css";
+import React, { useState, useEffect, useContext } from "react";
+import { auth, db } from "../firebase/firebase";
+import { doc, getDoc } from "firebase/firestore";
+import { useNavigate } from "react-router";
+import defaultImage from "../assets/default-image.png";
+import { isLoggedContext } from "../contexts/isLogged";
+import { toast } from "react-toastify";
 
-function Profile() {
-  const [userData, setUserData] = useState(null);
+const Profile = () => {
+  const [userDetails, setUserDetails] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  const { isLogged, setIsLogged } = useContext(isLoggedContext);
 
   useEffect(() => {
-    setTimeout(() => {
-      const mockUserData = {
-        userId: "12345",
-        email: "johndoe@example.com",
-        name: "John Doe",
-        profilePicture: "/default-profile.png",
-        rating: 4.5,
-        bio: "Software developer with a passion for building web applications.",
-        location: "New York, USA",
-      };
-      setUserData(mockUserData);
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        try {
+          const docRef = doc(db, "Users", user.uid);
+          const docSnap = await getDoc(docRef);
+          if (docSnap.exists()) {
+            setUserDetails(docSnap.data());
+          } else {
+            console.log("User document does not exist");
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+        }
+      } else {
+        console.log("No user logged in");
+      }
       setLoading(false);
-    }, 1000);
+    });
+
+    return () => unsubscribe(); // Cleanup function for listener
   }, []);
 
+  async function handleLogout() {
+    try {
+      await auth.signOut();
+      toast.success("User logged out successfully!", { position: "top-center" });
+      navigate("/home");
+      setIsLogged(false);
+      console.log("User logged out successfully!");
+    } catch (error) {
+      console.error("Error logging out:", error.message);
+    }
+  }
+
   if (loading) {
-    return (
-      <div className="profile-container">
-        <div className="loading-placeholder">
-          <div className="profile-picture-placeholder"></div>
-          <div className="profile-details-placeholder">
-            <div className="name-placeholder"></div>
-            <div className="email-placeholder"></div>
-          </div>
-        </div>
-      </div>
-    );
+    return <p>Loading...</p>;
   }
 
   return (
-    <div className="profile-container">
-      <div className="profile-header">
-        <div className="profile-picture">
-          <img
-            src={userData.profilePicture || "/default-profile.png"}
-            alt="Profile"
-          />
+    <div>
+      {userDetails ? (
+        <div className="profile-container">
+          <div className="profile-container">
+            <h2>User Profile</h2>
+            <div className="profile-pic">
+              <img
+                src={userDetails.profilePicture || "default-profile.png"}
+                alt="Profile"
+                className="profile-preview"
+              />
+            </div>
+            <p>{userDetails.name}</p>
+            <p>{userDetails.email}</p>
+            <p>{userDetails.bio} </p>
+            <p>{userDetails.location}</p>
+          </div>
+          <button onClick={() => navigate("/editprofile")}>Edit Profile</button>
+          <button onClick={handleLogout}>Log Out</button>
         </div>
-        <h2>Welcome, {userData.name}</h2>
-        <div className="user-rating">
-          <span>Rating: {userData.rating} ⭐</span>
-        </div>
-      </div>
-
-      <div className="profile-details">
-        <h3>About Me</h3>
-        <p>{userData.bio}</p>
-
-        <div className="user-info">
-          <p>
-            <strong>User ID:</strong> {userData.userId}
-          </p>
-          <p>
-            <strong>Email:</strong> {userData.email}
-          </p>
-          <p>
-            <strong>Location:</strong> {userData.location}
-          </p>
-        </div>
-      </div>
-
-      <div className="profile-management">
-        <button>Edit Profile</button>
-        <button>Change Password</button>
-        <button>Logout</button>
-      </div>
+      ) : (
+        <p>No user data available</p>
+      )}
     </div>
   );
-}
+};
 
 export default Profile;

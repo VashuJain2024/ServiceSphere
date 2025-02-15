@@ -1,53 +1,41 @@
-// import axios from "axios";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Signin.css";
+import { auth } from "../firebase/firebase";
+import { toast } from "react-toastify";
+// import SignInwithGoogle from "./signInWIthGoogle";
 
 export default function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null); 
+  const [success, setSuccess] = useState(null);
   const navigate = useNavigate();
 
   const handleSignin = async (e) => {
     e.preventDefault();
-
     if (!email || !password) {
       setError("Please fill out all fields.");
       return;
     }
-
     setLoading(true);
     setError(null);
-    setSuccess(null); 
+    setSuccess(null);
 
     try {
-      // Send request to the backend
-      // const response = await axios.post(
-      //   "http://localhost:5000/api/auth/signin",
-      //   {
-      //     email,
-      //     password,
-      //   }
-      // );
-
-      if (true) { 
-        // localStorage.setItem("authToken", response.data.token);
-        setSuccess("Sign-in successful! Redirecting to your profile...");
-        setTimeout(() => {
-          navigate("/terms");
-        }, 2000); 
-      } else {
-        setError("Signin failed. Please check your credentials.");
-      }
-    } catch (err) { 
-      setError(
-        err.response && err.response.data.message
-          ? err.response.data.message
-          : "Error during in. Please try again."
-      );
+      await signInWithEmailAndPassword(auth, email, password);
+      // console.log("User logged in Successfully");
+      navigate("/services");
+      toast.success("User logged in Successfully", {
+        position: "top-center",
+      });
+    } catch (error) {
+      // console.log(error.message);
+      toast.error(error.message, {
+        position: "bottom-center",
+      });
     } finally {
       setLoading(false);
     }
@@ -83,7 +71,7 @@ export default function Signin() {
             </Link>
           </div>
           {error && <p className="error">{error}</p>}
-          {success && <p className="success-message">{success}</p>}{" "} 
+          {success && <p className="success-message">{success}</p>}{" "}
         </form>
       </div>
     </div>

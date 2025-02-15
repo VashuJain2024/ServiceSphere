@@ -1,63 +1,52 @@
-// import axios from "axios";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";  
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Signup.css";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../firebase/firebase";
+import { setDoc, doc } from "firebase/firestore";
+import { toast } from "react-toastify";
+import { isLoggedContext } from "../contexts/isLogged";
 
 export default function Signup() {
-  const [username, setUsername] = useState(""); 
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState(""); 
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [role, setRole] = useState(""); // "worker" or "user"
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);  
-  const navigate = useNavigate();  
+
+  const navigate = useNavigate();
+  const { isLogged, setIsLogged } = useContext(isLoggedContext);
 
   const handleSignup = async (e) => {
-    e.preventDefault();  
-
-    if (!username || !email || !password || !confirmPassword) {
-      setError("Please fill out all fields.");
+    e.preventDefault();
+    if (!username || !email || !password || !confirmPassword || !role) {
+      setError("Please fill out all fields and select a role.");
       return;
     }
-
     if (password !== confirmPassword) {
       setError("Passwords do not match.");
       return;
     }
-
     setLoading(true);
     setError(null);
 
-    try { 
-      // const response = await axios.post(
-      //   "http://localhost:5000/api/auth/signup",
-      //   {
-      //     username,
-      //     email,
-      //     password,
-      //   }
-      // );
-
-      if (true) { 
-        // if (response.data.token) {
-        //   localStorage.setItem("authToken", response.data.token);  
-        // }
- 
-        setSuccess("You have successfully signed up! You can now log in.");
- 
-        setTimeout(() => {
-          navigate("/terms");
-        }, 1500);  
-      } else {
-        setError(response.data.message || "Signup failed. Please try again.");
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      const user = auth.currentUser;
+      if (user) {
+        await setDoc(doc(db, "Users", user.uid), {
+          name: username,
+          email: user.email,
+          pwd: password,
+          role,
+        });
       }
-    } catch (err) {
-      setError(
-        err.response && err.response.data.message
-          ? err.response.data.message
-          : "Error during signup. Please try again."
-      );
+      navigate("/services");
+      toast.success("User Registered Successfully!!", { position: "top-center" });
+    } catch (error) {
+      toast.error(error.message, { position: "bottom-center" });
     } finally {
       setLoading(false);
     }
@@ -69,11 +58,11 @@ export default function Signup() {
         <h2>Sign Up</h2>
         <form onSubmit={handleSignup}>
           <div>
-            <label>Username:</label> 
+            <label>Username:</label>
             <input
               type="text"
-              value={username} 
-              onChange={(e) => setUsername(e.target.value)} 
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               placeholder="Enter your username"
               required
             />
@@ -108,6 +97,27 @@ export default function Signup() {
               required
             />
           </div>
+
+          {/* Role Selection */}
+          <div className="role-selection">
+            <label>
+              <input
+                type="checkbox"
+                checked={role === "worker"}
+                onChange={() => setRole(role === "worker" ? "" : "worker")}
+              />
+              Worker
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={role === "user"}
+                onChange={() => setRole(role === "user" ? "" : "user")}
+              />
+              User
+            </label>
+          </div>
+
           <button type="submit" disabled={loading}>
             {loading ? "Signing up..." : "Sign Up"}
           </button>

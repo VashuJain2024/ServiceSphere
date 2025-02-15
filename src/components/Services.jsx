@@ -6,18 +6,18 @@ import { useNavigate, useLocation } from "react-router-dom";
 const Services = () => {
   const navigate = useNavigate();
   const location = useLocation();
- 
+
   const queryParams = new URLSearchParams(location.search);
   const searchFromURL = queryParams.get("search") || "";
- 
+
   const [searchTerm, setSearchTerm] = useState(searchFromURL);
- 
+
   useEffect(() => {
     const params = new URLSearchParams();
     if (searchTerm) params.set("search", searchTerm);
     navigate({ search: params.toString() }, { replace: true });
   }, [searchTerm, navigate]);
- 
+
   const filteredServices = homeServices.map((category) => ({
     ...category,
     services: category.services.filter((service) =>
@@ -28,7 +28,7 @@ const Services = () => {
   return (
     <section id="services" className="services-section">
       <h2>Our Home Services</h2>
- 
+
       <div className="search-container">
         <input
           type="text"
@@ -38,14 +38,14 @@ const Services = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
- 
+
       {filteredServices.some((category) => category.services.length > 0) ? (
         filteredServices.map(
           (category, index) =>
             category.services.length > 0 && (
               <div key={index} className="service-category">
                 <h3>{category.category}</h3>
-                <div className="services-grid">
+                <div className="services-grids">
                   {category.services.map((service, serviceIndex) => (
                     <div key={serviceIndex} className="service-card">
                       <img src={service.image} alt={service.title} />
@@ -64,6 +64,7 @@ const Services = () => {
                     </div>
                   ))}
                 </div>
+                <p className="swipe">&lt;&lt; Swipe &gt;&gt;</p>
               </div>
             )
         )

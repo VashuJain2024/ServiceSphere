@@ -2,7 +2,7 @@ const testimonials = [
     {
         id: 1,
         name: "Elizabeth P.",
-        rating: 5,
+        rating: 4,
         review:
             "The plumber was extremely professional and fixed my leaky pipes fast. The service was affordable, and I’m very pleased with the outcome. Highly recommend their team!",
         category: "PLUMBING",
@@ -18,7 +18,7 @@ const testimonials = [
     {
         id: 3,
         name: "Jessica T.",
-        rating: 5,
+        rating: 4,
         review:
             "I had a major pest issue at home. The team was prompt, professional, and their treatment completely solved the problem. I haven’t seen any pests since. Very satisfied!",
         category: "PEST CONTROL",

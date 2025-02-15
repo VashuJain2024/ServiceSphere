@@ -11,7 +11,7 @@ h2 {
     margin-bottom: 20px;
     color: #333;
 }
- 
+
 .sorting {
     display: flex;
     justify-content: flex-end;
@@ -33,7 +33,7 @@ h2 {
     column-gap: 20px;
     justify-content: center;
 }
- 
+
 .filter-container {
     background: white;
     padding: 20px;
@@ -44,12 +44,12 @@ h2 {
     position: sticky;
     top: 80px;
 }
- 
+
 h3 {
     margin: 0 0 10px;
     color: #333;
 }
- 
+
 .date-buttons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -84,9 +84,9 @@ h3 {
 }
 
 input[type="checkbox"] {
-    accent-color: #193a76; 
+    accent-color: #193a76;
 }
- 
+
 .time-options {
     display: flex;
     flex-direction: column;
@@ -98,7 +98,7 @@ input[type="checkbox"] {
     font-size: 14px;
     color: #555;
 }
- 
+
 .divider {
     text-align: center;
     font-size: 12px;
@@ -220,6 +220,8 @@ input[type="checkbox"] {
         flex-direction: column;
         text-align: center;
         padding: 20px;
+        width: auto;
+        max-width: none;
     }
 
     .tasker-image {
@@ -228,5 +230,29 @@ input[type="checkbox"] {
 
     .sorting {
         justify-content: center;
+    }
+
+    .tasker-list {
+        min-width: 50px;
+    }
+
+    .stars {
+        justify-content: center;
+    }
+
+    .left-right {
+        flex-direction: column;
+        row-gap: 30px;
+    }
+
+    .filter-container {
+        position: static;
+        width: auto;
+    }
+}
+
+@media (max-width: 359px) {
+    .tasker-container {
+        width: 97%;
     }
 }

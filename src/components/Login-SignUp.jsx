@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login-SignUp.css";
 import logo from "../assets/logo.png";
 
 const LoginSignUp = () => {
   const navigate = useNavigate();
-
+  
   return (
     <div className="landing-container">
       <div className="overlay">

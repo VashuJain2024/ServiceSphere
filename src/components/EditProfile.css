@@ -1,48 +1,53 @@
-.signup-container {
-    width: 100%;
+.edit-profile-container {
     max-width: 400px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
     background: #fff;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
-.headingForm h2 {
+h2 {
     margin-bottom: 15px;
+    color: #333;
 }
 
 form {
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
 label {
     font-weight: bold;
     text-align: left;
     display: block;
-    margin-top: 10px;
 }
 
-input {
-    width: 100%;
+input,
+textarea {
+    width: 95%;
     padding: 10px;
-    margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.role-selection {
-    display: flex;
-    justify-content: space-between;
-    margin: 15px 0;
+textarea {
+    height: 80px;
+    resize: none;
 }
 
-.role-selection label {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+.profile-pic {
+    text-align: center;
+}
+
+.profile-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 10px;
 }
 
 button {
@@ -53,7 +58,6 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
 }
 
 button:disabled {
@@ -61,7 +65,15 @@ button:disabled {
     cursor: not-allowed;
 }
 
-.error {
-    color: red;
-    margin-top: 10px;
+/* Responsive Design */
+@media (max-width: 500px) {
+    .edit-profile-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .profile-preview {
+        width: 70px;
+        height: 70px;
+    }
 }

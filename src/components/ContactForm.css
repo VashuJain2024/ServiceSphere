@@ -1,18 +1,19 @@
-body{
+body {
     background-color: #e3f0f1;
 }
+
 .contact-form {
     max-width: 500px;
-    margin: 100px auto; 
+    margin: 100px auto;
     padding: 20px;
-    background-color: #f7f7f7;
+    /* background-color: #f7f7f7; */
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 12px rgb(0 0 0 / 24%);
 }
 
 .contact-form h2 {
     text-align: center;
-    font-size: 2rem; 
+    font-size: 2rem;
     margin-bottom: 20px;
     color: #193a76;
 }
@@ -28,17 +29,17 @@ body{
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 12px; 
+    padding: 12px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1rem;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 .contact-form textarea {
-    resize: vertical; 
-    min-height: 120px; 
+    resize: vertical;
+    min-height: 120px;
 }
 
 .contact-form button {
@@ -68,27 +69,26 @@ body{
 @media (max-width: 768px) {
     .contact-form {
         padding: 15px;
-        margin: 15px;
     }
 
     .contact-form h2 {
-        font-size: 1.8rem; 
+        font-size: 1.8rem;
     }
 
     .contact-form input,
     .contact-form textarea {
-        padding: 10px; 
+        padding: 10px;
     }
 
     .contact-form button {
         padding: 10px;
-        font-size: 0.9rem; 
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
     .contact-form {
-        max-width: 90%; 
+        max-width: 90%;
         padding: 10px;
     }
 
@@ -102,7 +102,7 @@ body{
 
     .contact-form input,
     .contact-form textarea {
-        font-size: 0.9rem; 
+        font-size: 0.9rem;
     }
 
     .contact-form button {

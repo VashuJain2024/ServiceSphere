@@ -6,6 +6,7 @@
     width: 100%;
     max-width: 600px;
     margin: 90px auto 10px auto;
+    padding: 0px 15px;
 }
 
 .progress-bar {
@@ -43,22 +44,22 @@
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 }
- 
+
 .step.active {
-    background-color:#193a76;
+    background-color: #193a76;
     color: white;
     cursor: pointer;
 }
- 
+
 .step.disabled {
     border-color: #aaa;
     color: #aaa;
-    pointer-events: none; 
+    pointer-events: none;
     cursor: not-allowed;
 }
- 
+
 .step.completed {
-    background-color:#193a76;
+    background-color: #193a76;
     color: white;
     pointer-events: none;
 }
